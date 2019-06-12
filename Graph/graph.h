@@ -62,11 +62,16 @@ public:
 	Tv get_ver_data(int i);
 	int get_ver_indegree(int i);
 	int get_ver_outdegree(int i);
+	Tv update_ver_data(int i, Tv _data);
+	int update_ver_indegree(int i, int _indegree);
+	int update_ver_outdegree(int i, int _outdegree);
 	int insert_ver(Tv _data);
 	Tv remove_ver(int i);
 	bool is_edge_exists(int i, int j);
 	Te get_edge_data(int i, int j);
 	int get_edge_weight(int i, int j);
+	Te update_edge_data(int i, int j, Te _data);
+	int update_edge_weight(int i, int j, int _weight);
 	void insert_edge(Te _data, int _weight, int i, int j);
 	Te remove_edge(int i, int j);
 	void print();

@@ -173,6 +173,45 @@ int graph<Tv, Te>::get_ver_outdegree(int i)
 }
 
 template <typename Tv, typename Te>
+Tv graph<Tv, Te>::update_ver_data(int i, Tv _data)
+{
+	if (i >= 0 && i < ver_num)
+	{
+		Tv _return = V[i]->data;
+		V[i]->data = _data;
+		return _return;
+	}
+	else
+		return NULL;
+}
+
+template <typename Tv, typename Te>
+int graph<Tv, Te>::update_ver_indegree(int i, int _indegree)
+{
+	if (i >= 0 && i < ver_num)
+	{
+		int _return = V[i]->in_degree;
+		V[i]->in_degree = _indegree;
+		return _return;
+	}
+	else
+		return -1;
+}
+
+template <typename Tv, typename Te>
+int graph<Tv, Te>::update_ver_outdegree(int i, int _outdegree)
+{
+	if (i >= 0 && i < ver_num)
+	{
+		int _return = V[i]->out_degree;
+		V[i]->out_degree = _outdegree;
+		return _return;
+	}
+	else
+		return -1;
+}
+
+template <typename Tv, typename Te>
 int graph<Tv, Te>::insert_ver(Tv _data)
 {
 	if (ver_num > 0)
@@ -360,6 +399,32 @@ int graph<Tv, Te>::get_edge_weight(int i, int j)
 {
 	if (i >= 0 && i < ver_num && j >= 0 && j < ver_num && E[i][j])
 		return E[i][j]->weight;
+	else
+		return -1;
+}
+
+template <typename Tv, typename Te>
+Te graph<Tv, Te>::update_edge_data(int i, int j, Te _data)
+{
+	if (i >= 0 && i < ver_num && j >= 0 && j < ver_num && E[i][j])
+	{
+		Te _return = E[i][j]->data;
+		E[i][j]->data = _data;
+		return _return;
+	}
+	else
+		return NULL;
+}
+
+template <typename Tv, typename Te>
+int graph<Tv, Te>::update_edge_weight(int i, int j, int _weight)
+{
+	if (i >= 0 && i < ver_num && j >= 0 && j < ver_num && E[i][j])
+	{
+		int _return = E[i][j]->weight;
+		E[i][j]->weight = _weight;
+		return _return;
+	}
 	else
 		return -1;
 }
